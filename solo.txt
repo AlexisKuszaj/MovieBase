@@ -1,0 +1,7 @@
+Alexis Kuszaj
+Stack: JavaScript
+Github: https://github.com/AlexisKuszaj/soloproject
+Title:
+Description: A social media for book-lovers. This site will showcase a profie with what books a person has read, what the want to read, and book ratings.
+MVP: Able to rate books, and able to add books to profile 
+Bonus: application with feature a third-party API
