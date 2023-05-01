@@ -2,6 +2,6 @@ Alexis Kuszaj
 Stack: JavaScript
 Github: https://github.com/AlexisKuszaj/Solo
 Title:
-Description: A social media for book-lovers. This site will showcase a profie with what books a person has read, what the want to read, and book ratings.
-MVP: Able to rate books, and able to add books to profile 
+Description: A social media for game-lovers. This site will showcase a profie with what games a person has played, what they want to play, and game ratings.
+MVP: Able to rate games, and able to add games to profile 
 Bonus: application with feature a third-party API
