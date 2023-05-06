@@ -1,11 +1,16 @@
 import React from 'react';
 
-const MovieListHeading = (props) => {
+const MovieListHeading = ({ heading }) => {
 	return (
-		<div className='col'>
-			<h1>{props.heading}</h1>
-		</div>
+	  <div className='col'>
+		<h1>{heading}</h1>
+	  </div>
 	);
-};
+  };
+  
 
-export default MovieListHeading;
+  
+  
+  <MovieListHeading heading='Popular Movies' />
+
+  export default MovieListHeading

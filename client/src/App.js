@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import {Route, Routes, BrowserRouter, Link} from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import MovieDetails from './components/MovieDetails';
@@ -10,23 +9,41 @@ import AddFavorites from './components/AddFavorites';
 import RemoveFavorites from './components/RemoveFavorites';
 import NavBar from './components/NavBar';
 import Form from './components/Form';
+import { getPopularMovies } from './components/tmdb';
+
+
 
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const [selectedMovie, setSelectedMovie] = useState(null)
+  const [popularMovies, setPopularMovies] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  
 
   const getMovieRequest = async () => {
-    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=a4598df6`;
-
-    const response = await fetch(url);
+    const apiKey = '9b33f5d9a5751882a7ce784a73447ec7';
+    const apiUrl = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${searchValue}&page=${currentPage}`;
+  
+    const response = await fetch(apiUrl);
     const responseJson = await response.json();
-
-    if (responseJson.Search) {
-      setMovies(responseJson.Search);
+  
+    if (responseJson.results) {
+      setMovies(responseJson.results);
     }
   };
+  
+
+  useEffect(() => {
+    const fetchMovies = async () => {
+      const popularMovies = await getPopularMovies();
+      setPopularMovies(popularMovies);
+    };
+  
+    fetchMovies();
+  }, []);
 
   useEffect(() => {
     getMovieRequest(searchValue);
@@ -65,6 +82,10 @@ const App = () => {
     setSelectedMovie(movie);
 
   };
+  const handleLoadMore = () => {
+    setCurrentPage(currentPage + 1);
+  };
+
 
   return (
     <div className='container movie-app'>
@@ -78,11 +99,12 @@ const App = () => {
       <div className='movieform'>
         <div className='row'>
         <MovieList
-          movies={movies}
-          handleFavoritesClick={addFavoriteMovie}
-          favoriteComponent={AddFavorites}
-          handleMovieClick={handleMovieClick}
-        />
+  movies={searchValue ? movies : popularMovies}
+  handleFavoritesClick={addFavoriteMovie}
+  favoriteComponent={AddFavorites}
+  handleMovieClick={handleMovieClick}
+  handleLoadMore={handleLoadMore} 
+/>
       </div>
         <Form /></div>
       

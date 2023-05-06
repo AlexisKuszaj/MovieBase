@@ -8,7 +8,6 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Perform validation
     if (currentItem.trim() === '') {
       setError('Please enter a valid movie');
       return;
@@ -16,7 +15,6 @@ const Form = () => {
 
     setError('');
 
-    // Add the item to the list
     setItems([...items, currentItem]);
     setCurrentItem('');
   };
@@ -53,8 +51,8 @@ const Form = () => {
             {item}
             <br/>
             <span className='edit'>
-              <button>Edit</button>
-              <button onClick={() => deleteItem(index)}>Delete</button>
+              <button className='edit-btn'>Edit</button>
+              <button className='delete' onClick={() => deleteItem(index)}>Delete</button>
             </span>
           </li>
         ))}
