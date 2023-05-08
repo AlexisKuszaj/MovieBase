@@ -71,13 +71,12 @@ const App = () => {
 
   const removeFavoriteMovie = (movie) => {
     const newFavoriteList = favorites.filter(
-      (favorite) => favorite.imdbID !== movie.imdbID
+      (favorite) => favorite !== movie
     );
-
+  
     setFavorites(newFavoriteList);
     saveToLocalStorage(newFavoriteList);
-
-  }
+  };
   const handleMovieClick = (movie) => {
     setSelectedMovie(movie);
 
