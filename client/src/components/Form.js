@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const Form = () => {
   const [items, setItems] = useState([]);
   const [currentItem, setCurrentItem] = useState('');
-  const [editIndex, setEditIndex] = useState(-1); // New state variable to track the index of the item being edited
+  const [editIndex, setEditIndex] = useState(-1); 
   const [error, setError] = useState('');
 
   const handleSubmit = (e) => {
@@ -17,14 +17,14 @@ const Form = () => {
     setError('');
 
     if (editIndex === -1) {
-      // If not in edit mode, add a new item
+  
       setItems([...items, currentItem]);
     } else {
-      // If in edit mode, update the existing item
+  
       const updatedItems = [...items];
       updatedItems[editIndex] = currentItem;
       setItems(updatedItems);
-      setEditIndex(-1); // Exit edit mode
+      setEditIndex(-1); 
     }
 
     setCurrentItem('');
