@@ -29,7 +29,7 @@ const MovieList = ({ movies, handleFavoritesClick, favoriteComponent, handleMovi
         <div className='image-container d-flex justify-content-start m-3' key={index}>
           <div className='movie-info'>
 			  <div className='movie-title'>{movie.title}</div>
-			  <div className='movie-year'>({movie.release_date})</div>
+			  {/* <div className='movie-year'>({movie.release_date})</div> */}
             <img
               className="poster"
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

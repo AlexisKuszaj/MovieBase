@@ -8,9 +8,11 @@ const NavBar = (props) => {
 			<div className="navbar-inline">
 
 <span class=" movienav navbar-brand mb-0 h1">Movie<span className="base">Base</span></span>
-
-{/* <SearchBox/> */}
 			</div>
+            <ul>
+                <li>Home</li>
+                <li>Favorites</li>
+            </ul>
 </nav>
     )
 }
