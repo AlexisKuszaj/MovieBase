@@ -1,20 +1,38 @@
+import React from 'react';
+import SearchBox from './SearchBox';
+import { Link, useNavigate } from 'react-router-dom';
+import FavoritesPage from './FavoritesPage';
+import Home from './Home';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { useState, useEffect } from 'react';
+const NavBar = ({ searchValue, setSearchValue, onSearch }) => {
+  const navigate = useNavigate();
 
-const NavBar = (props) => {
-    return (
-        <nav class="navbar navbar-light bg-light">
-			<div className="navbar-inline">
+  return (
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div className="container">
+        <Link to="/" className="navbar-brand">
+          Movie<span className="base">Base</span>
+        </Link>
 
-<span class=" movienav navbar-brand mb-0 h1">Movie<span className="base">Base</span></span>
-			</div>
-            <ul>
-                <li>Home</li>
-                <li>Favorites</li>
-            </ul>
-</nav>
-    )
-}
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item">
+              <Link to="/" className="nav-link" activeClassName="active" end>
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/favorites" className="nav-link" activeClassName="active">
+                Favorites
+              </Link>
+            </li>
+          </ul>
 
-export default NavBar
+          <SearchBox searchValue={searchValue} setSearchValue={setSearchValue} onSearch={onSearch} />
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default NavBar;

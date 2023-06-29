@@ -1,25 +1,52 @@
-/* * {
-	border: #881A1A 1px solid;
-} */
+* {
+	/* border: #881A1A 1px solid; */
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+
 
 body {
-	background: #E1E1E1;
+	background-image: url(images/denise-jans-Lq6rcifGjOU-unsplash.jpg);
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 	color: #881A1A;
 }
 
+.container {
+	justify-content: center;
+	align-items: center;
+}
 
-.movie-app > .row {
-	overflow-x:auto;
-	flex-wrap: nowrap
+.movie-app>.row {
+	overflow-x: auto;
+	flex-wrap: nowrap;
+}
+
+.row {
+	display: flex;
+	background-color: #F8F9FA;
+	justify-content: center;
+	align-items: center;
 }
 
 
-
 .image-container {
-	width: 300px;
-	position:relative;
+	width: 190px;
+	position: relative;
 	transition: transform 0.2s;
 	align-items: center;
+	justify-content: center;
+	text-align: center;
+
+}
+
+.movie-info {
+	text-align: center;
+	width: 200px;
 }
 
 .image-container:hover {
@@ -33,35 +60,28 @@ body {
 
 .overlay {
 	position: absolute;
-	background: rgba(0, 0, 0, 0.8);
-	width: 90px;
+	background: rgba(0, 0, 0, 0.5);
+	width: 80%;
+	height: 80%;
+	align-items: center;
+	justify-content: center;
 	transition: 0.5s ease;
 	opacity: 0;
 	bottom: 0;
+	left: 20px;
 	font-size: 20px;
-	text-align: center;
-}
-
-.navbar{
-  display: flex;
-  margin: 0px;
-}
-
-.nav{
-	display: flex;
-margin: right
 }
 
 
 .movienav {
-  width: 300px;
-  height: 80px;
-  font-size: 50px;
+	width: 300px;
+	height: 80px;
+	font-size: 50px;
 }
 
 .base {
-  color: #881A1A;
-  font-weight: bold;
+	color: #881A1A;
+	font-weight: bold;
 }
 
 .input {
@@ -80,27 +100,38 @@ margin: right
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	width: 250px; /* Increase the width as needed */
-	height: 350px; /* Increase the height as needed */
-  }
-  
-  .movie-poster {
+	justify-content: center;
+	width: 200px;
+	height: 350px;
+	border: #881A1A 1px solid;
+	background: #E1E1E1;
+	margin-bottom: 10px;
+	padding: 10px;
+	box-sizing: border-box;
+	transition: transform 0.2s;
+}
+
+.movie-poster {
 	width: 100%;
-	height: 250px; /* Adjust the height as needed */
-	object-fit: cover; /* Maintain aspect ratio for the poster */
-  }
-  
-  .movie-title {
+	height: auto;
+	max-height: 250px;
+	object-fit: contain;
+}
+
+.movie-title {
 	text-align: center;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	white-space: nowrap;
-	width: 90%; /* Adjust the width as needed */
-	margin: 10px auto; /* Center the title within the box */
-	font-size: 16px; /* Adjust the font size as needed */
-  }
+	white-space: normal;
+	width: 80%;
+	margin: 10px auto;
+	font-size: 16px;
+}
 
-.movie-title, .movie-year{
+
+
+.movie-title,
+.movie-year {
 	font-size: 15px;
 }
 
@@ -122,24 +153,18 @@ margin: right
 	padding: 10px;
 }
 
-.forms {
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	justify-content: space-around;
-}
 
-ul{
+ul {
 	list-style-type: none;
-	
+
 }
 
-li{
- font-size: 18px;
- margin-bottom: 10px;
+li {
+	font-size: 18px;
+	margin-bottom: 10px;
 }
 
-.movieform{
+.movieform {
 	display: flex;
 	text-shadow: 0 0 3px 0 #881A1A
 }
@@ -150,50 +175,97 @@ li{
 	border: black 4px solid;
 	width: 500px;
 }
+
 .popup h2 {
 	font-size: 20px;
 }
 
-.popup-close{
+.popup-close {
 	margin: 10px;
 	padding: 5px;
 	width: 150px;
 }
 
-.mr-2{
+span {
+	width: 100px;
+}
+
+.remove {
+
 	display: flex;
 	flex-direction: column;
 	height: 50px;
-	width: 91px;
-	font-size: 15px;
-}
-.remove {
-	
-		display: flex;
-		flex-direction: column;
-		height: 50px;
-		font-size: 12px;
-	
+	font-size: 12px;
+
 }
 
-.edit-btn, .delete{
+.edit-btn,
+.delete {
 	font-size: 11px;
 }
 
-.edit{
+.edit {
 	display: flex;
 	justify-content: center;
-	margin-right:10px
+	margin-right: 10px
 }
 
 .navbar {
 	display: flex;
-flex-direction: column;
-text-align: center;
+	flex-direction: column;
+	text-align: center;
 }
 
 ul {
 	display: flex;
 	justify-content: space-around;
 	width: 400px;
+}
+
+#navbarSupportedContent {
+	justify-content: space-between;
+	display: flex;
+
+
+}
+
+.navbar-nav {
+	align-items: center;
+	margin-right: 30px;
+
+}
+
+.container {
+	padding: 10px;
+
+	.navbar-brand {
+		font-size: 40px;
+		padding: 10px;
+		width: 250px;
+	}
+
+	.col,
+	.navbar-nav,
+	.navbar-brand {
+		width: 300px;
+		text-align: center;
+		margin-top: 10px;
+		margin-left: 100px;
+	}
+}
+
+.footer {
+	display: flex;
+	background-color: #212529;
+	height: 100px;
+	margin-top: 20px;
+	border-radius: 5px;
+	text-align: center;
+	align-content: center;
+	justify-content: center;
+	font-size: 22px;
+}
+
+h1 {
+	margin-left: 20px;
 }
